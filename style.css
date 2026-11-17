@@ -1,0 +1,282 @@
+:root {
+    --bg-color: #05050a;
+    --panel-bg: rgba(15, 15, 25, 0.85);
+    --neon-red: #ff2a5f;
+    --neon-blue: #00f0ff;
+    --text-main: #f0f0f5;
+    --text-muted: #8888aa;
+    --border-color: rgba(0, 240, 255, 0.2);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: 'Courier New', Courier, monospace, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Cabeçalho Fixo */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    border-bottom: 1px solid var(--border-color);
+    background: var(--panel-bg);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: var(--neon-blue);
+    text-transform: uppercase;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--neon-red);
+    text-shadow: 0 0 8px rgba(255, 42, 95, 0.6);
+}
+
+/* Secção 1: Página Inicial / Hero */
+.hero-section {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+    border-bottom: 1px solid var(--border-color);
+    position: relative;
+}
+
+.hero-title {
+    font-size: 3rem;
+    letter-spacing: 4px;
+    color: var(--text-main);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.hero-subtitle {
+    font-size: 1.1rem;
+    color: var(--neon-blue);
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+}
+
+.scroll-down-indicator {
+    position: absolute;
+    bottom: 30px;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+/* Secção 2: Projetos (Plano B - Fila Horizontal) */
+.projects-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 20px 40px 20px;
+}
+
+.section-heading {
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    color: var(--text-main);
+}
+
+/* Filtros por Área */
+.filters {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.filter-btn {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+    padding: 8px 16px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background: var(--neon-blue);
+    color: var(--bg-color);
+    border-color: var(--neon-blue);
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.4);
+}
+
+/* Contentor da Fila Horizontal */
+.carousel-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    max-width: 1100px;
+    justify-content: center;
+    gap: 20px;
+}
+
+.nav-arrow {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    font-size: 1.5rem;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.nav-arrow:hover {
+    border-color: var(--neon-red);
+    color: var(--neon-red);
+    box-shadow: 0 0 10px rgba(255, 42, 95, 0.4);
+}
+
+.row-track {
+    display: flex;
+    gap: 20px;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    min-height: 350px;
+}
+
+/* Itens da Fila */
+.project-card {
+    min-width: 140px;
+    height: 280px;
+    background: rgba(20, 20, 35, 0.6);
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    padding: 15px;
+    text-align: center;
+}
+
+.project-card span {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+/* Projeto Escolhido (ao centro) */
+.project-card.active-center {
+    min-width: 320px;
+    height: 340px;
+    background: rgba(30, 20, 40, 0.9);
+    border: 2px solid var(--neon-red);
+    box-shadow: 0 0 25px rgba(255, 42, 95, 0.3);
+    transform: scale(1.05);
+}
+
+.project-card.active-center span {
+    writing-mode: horizontal-tb;
+    color: var(--text-main);
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+/* Informações do Projeto Ativo */
+.project-info {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.project-title {
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    color: var(--text-main);
+}
+
+.project-meta {
+    font-size: 0.85rem;
+    color: var(--neon-blue);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid var(--border-color);
+    background: var(--panel-bg);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .hero-title { font-size: 2rem; }
+    .project-card.active-center { min-width: 240px; }
+    .project-card { min-width: 80px; }
+}

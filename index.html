@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio | Página Inicial + Plano B</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Cabeçalho Fixo -->
+    <header>
+        <div class="logo">Portfólio / Percurso</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Início</a></li>
+                <li><a href="#projects">Projetos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Secção 1: Página Inicial (Hero) -->
+    <section id="home" class="hero-section">
+        <h1 class="hero-title">Bem-vindo ao meu Portfólio</h1>
+        <p class="hero-subtitle">Percurso em CAM, PAA, Fotografia, Vídeo e Web</p>
+        <div class="scroll-down-indicator">↓ Faz scroll para ver os projetos ↓</div>
+    </section>
+
+    <!-- Secção 2: Projetos (Plano B - Fila Horizontal) -->
+    <section id="projects" class="projects-section">
+        <h2 class="section-heading">Trabalhos em Fila</h2>
+
+        <!-- Filtros por Área -->
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">Todos</button>
+            <button class="filter-btn" data-filter="cam">CAM</button>
+            <button class="filter-btn" data-filter="paa">PAA</button>
+            <button class="filter-btn" data-filter="foto">Foto</button>
+            <button class="filter-btn" data-filter="video">Vídeo</button>
+            <button class="filter-btn" data-filter="web">Web</button>
+        </div>
+
+        <!-- Fila Horizontal -->
+        <div class="carousel-container">
+            <button class="nav-arrow" id="prevBtn">&#8592;</button>
+            
+            <div class="row-track" id="track">
+                <!-- Conteúdo gerado via JS -->
+            </div>
+
+            <button class="nav-arrow" id="nextBtn">&#8594;</button>
+        </div>
+
+        <!-- Detalhe do Projeto Central -->
+        <div class="project-info">
+            <h3 class="project-title" id="projTitle">Título do Projeto</h3>
+            <p class="project-meta" id="projMeta">área · ano</p>
+        </div>
+    </section>
+
+    <footer>
+        Contacto · Redes | Percurso CAM e Mixmédia
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
